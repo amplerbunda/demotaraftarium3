@@ -626,7 +626,13 @@ padding-right: 10px;
 <body>
     <amp-sidebar class="site-menu" id="site-menu" layout="nodisplay" side="right">
 	    
-<amp-state id="adVisible">
+<amp-state id="firstAdVisible">
+        <script type="application/json">
+            true
+        </script>
+    </amp-state>
+
+    <amp-state id="secondAdVisible">
         <script type="application/json">
             true
         </script>
@@ -677,18 +683,23 @@ padding-right: 10px;
  <amp-iframe allowfullscreen="" allowtransparency="" frameborder="0" height="300" scrolling="no" src="https://fram8.pages.dev/channel?id=yayinstar" width="auto" layout="fixed-height" sandbox="allow-downloads allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation-by-user-activation" style="height:300px"><span placeholder="" class="amp-wp-iframe-placeholder"></span><noscript><iframe name="ekrani" frameborder="0" height="300" scrolling="no" src="https://fram8.pages.dev/channel?id=yayinstar" width="100%"></iframe></noscript></amp-iframe>
     <span><strong>⚽️ Günün Canlı Maçları ↓</strong></span>
 
-<div id="uyarikutu" [class]="adVisible ? 'uyarikutu' : 'uyarikutu hidden'">
-        <div class="uyarikutu">
-            <div class="uyaribaslik">Önemli Duyuru</div>
-            <div class="aciklaaciklama">
-                <amp-img src="/xxsss.jpg" width="300" height="200" layout="responsive"></amp-img>
-            </div>
-            <div class="uyariaciklama">Bu burada bir açıklama veya mesaj olabilir.</div>
-            <div class="uyaributon">
-                <button on="tap:AMP.setState({ adVisible: false })">Kapat</button>
-            </div>
-        </div>
+<!-- İlk Reklam -->
+    <div id="firstSplashAd" class="splashAd" [class]="firstAdVisible ? 'splashAd' : 'splashAdHidden'">
+        <a href="https://bit.ly/TIKLAGIR" target="_blank">
+            <img src="/xxsss.jpg" alt="Reklam">
+        </a>
+        <button on="tap:AMP.setState({ firstAdVisible: false })">Kapat</button>
     </div>
+
+    <!-- İkinci Reklam -->
+    <div id="secondSplashAd" class="splashAd secondAd" [class]="secondAdVisible ? 'splashAd secondAd' : 'splashAdHidden'">
+        <a href="https://bit.ly/TIKLAGIR" target="_blank">
+            <img src="/xxsss.jpg" alt="Reklam">
+        </a>
+        <button on="tap:AMP.setState({ secondAdVisible: false })">Kapat</button>
+    </div>
+
+    <!-- Sayfanın geri kalan içeriği -->
 
 	    
 
