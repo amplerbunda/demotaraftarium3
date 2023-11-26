@@ -123,23 +123,59 @@
 		margin-left:auto;
 		margin-right:auto
 	}
-	    .splashAd {
+	    #uyarikutu {
+            background: rgba(59,59,59,.7);
             position: fixed;
-            top: 10%; /* İlk reklamın konumu */
-            left: 50%;
-            transform: translate(-50%, -10%);
-            z-index: 1000;
-            background-color: white;
-            border: 1px solid #ccc;
-            padding: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.5);
-            display: block;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 100000000000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-
-        .splashAdHidden {
-            display: none;
+        .uyarikutu {
+            width: 92%;
+            max-width: 350px;
+            margin: 0 auto;
+            padding: .75rem 1.5rem;
+            background: white; /* Arka plan beyaz olarak ayarlandı */
+            border-radius: 10px; /* Kenarları yuvarlatıldı */
+            box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Gölge efekti eklendi */
         }
-
+        .uyaribaslik {
+            color: #fff;
+            background: rgba(3,0,163,1);
+            font-size: 15px;
+            text-align: center;
+            font-weight: 700;
+            line-height: 25px;
+            padding: .5rem 5px;
+            margin: .5rem 0;
+            border-radius: 10px;
+        }
+        .aciklaaciklama {
+            color: #fff;
+            text-align: center;
+            font-weight: 700;
+        }
+        .uyariaciklama {
+            color: #555;
+            text-align: center;
+            line-height: 18px;
+            margin-top: .5rem;
+        }
+        .uyaributon button {
+            border: none;
+            background: rgba(3,0,163,1);
+            color: #fff;
+            padding: .6rem 15px;
+            display: inline-block;
+            border-radius: 5px;
+            cursor: pointer;
+        }
         .secondAd {
             top: 60%; /* İkinci reklamın konumu */
         }
@@ -626,13 +662,7 @@ padding-right: 10px;
 <body>
     <amp-sidebar class="site-menu" id="site-menu" layout="nodisplay" side="right">
 	    
-<amp-state id="firstAdVisible">
-        <script type="application/json">
-            true
-        </script>
-    </amp-state>
-
-    <amp-state id="secondAdVisible">
+<amp-state id="adVisible">
         <script type="application/json">
             true
         </script>
@@ -683,23 +713,18 @@ padding-right: 10px;
  <amp-iframe allowfullscreen="" allowtransparency="" frameborder="0" height="300" scrolling="no" src="https://fram8.pages.dev/channel?id=yayinstar" width="auto" layout="fixed-height" sandbox="allow-downloads allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation-by-user-activation" style="height:300px"><span placeholder="" class="amp-wp-iframe-placeholder"></span><noscript><iframe name="ekrani" frameborder="0" height="300" scrolling="no" src="https://fram8.pages.dev/channel?id=yayinstar" width="100%"></iframe></noscript></amp-iframe>
     <span><strong>⚽️ Günün Canlı Maçları ↓</strong></span>
 
-<!-- İlk Reklam -->
-    <div id="firstSplashAd" class="splashAd" [class]="firstAdVisible ? 'splashAd' : 'splashAdHidden'">
-        <a href="https://bit.ly/TIKLAGIR" target="_blank">
-            <img src="/xxsss.jpg" alt="Reklam">
-        </a>
-        <button on="tap:AMP.setState({ firstAdVisible: false })">Kapat</button>
+<div id="uyarikutu" [class]="adVisible ? 'uyarikutu' : 'uyarikutu hidden'">
+        <div class="uyarikutu">
+            <div class="uyaribaslik">Önemli Duyuru</div>
+            <div class="aciklaaciklama">
+                <amp-img src="/xxsss.jpg" width="300" height="200" layout="responsive"></amp-img>
+            </div>
+            <div class="uyariaciklama">Bu burada bir açıklama veya mesaj olabilir.</div>
+            <div class="uyaributon">
+                <button on="tap:AMP.setState({ adVisible: false })">Kapat</button>
+            </div>
+        </div>
     </div>
-
-    <!-- İkinci Reklam -->
-    <div id="secondSplashAd" class="splashAd secondAd" [class]="secondAdVisible ? 'splashAd secondAd' : 'splashAdHidden'">
-        <a href="https://bit.ly/TIKLAGIR" target="_blank">
-            <img src="/xxsss.jpg" alt="Reklam">
-        </a>
-        <button on="tap:AMP.setState({ secondAdVisible: false })">Kapat</button>
-    </div>
-
-    <!-- Sayfanın geri kalan içeriği -->
 
 	    
 
